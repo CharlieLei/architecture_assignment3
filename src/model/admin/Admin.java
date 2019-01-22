@@ -6,4 +6,8 @@ public abstract class Admin {
     public Admin(Permission permission) {
          this.managePermission = permission;
     }
+
+    public Permission getManagePermission() {
+        return managePermission;
+    }
 }
