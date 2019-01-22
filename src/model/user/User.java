@@ -1,5 +1,6 @@
-package model;
+package model.user;
 
+import model.Book;
 import strategy.BorrowStrategy;
 
 public abstract class User {
