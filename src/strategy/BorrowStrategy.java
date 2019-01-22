@@ -1,4 +1,4 @@
-package service.strategy;
+package strategy;
 
 import model.Book;
 
