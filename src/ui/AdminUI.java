@@ -26,7 +26,7 @@ public class AdminUI {
                 case "show overdue penalty":
                     this.showOverduePenalty(admin);
                     break;
-                case "quit":
+                case "logout":
                     isQuit = true;
                     break;
             }

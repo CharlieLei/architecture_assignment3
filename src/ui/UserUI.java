@@ -13,13 +13,14 @@ public class UserUI {
         boolean isQuit = false;
         String order = "";
         while (!isQuit) {
+            System.out.println("user console");
             System.out.print("order: ");
             order = scanner.nextLine();
             switch (order) {
                 case "borrow":
                     this.borrow(loginUser);
                     break;
-                case "quit":
+                case "logout":
                     isQuit = true;
                     break;
             }
