@@ -69,11 +69,9 @@ public class BookDao {
     }
 
     public void showAllBooks() {
+        System.out.println("bookId\tbookName");
         for (Book book: bookList) {
-            System.out.print("bookId: ");
-            System.out.println(book.getBookId());
-            System.out.print("bookName: ");
-            System.out.println(book.getBookName());
+            System.out.println(book.getBookId() + "\t" + book.getBookName());
         }
     }
 }

@@ -1,6 +1,7 @@
 package ui;
 
 import dao.BookDao;
+import model.Book;
 import model.user.User;
 import service.BorrowManager;
 
@@ -49,29 +50,23 @@ public class UserUI {
     }
 
     private void updatePassword(User loginUser) {
-        System.out.print("Userid: ");
-        String userid = scanner.nextLine();
-        System.out.print("Password: ");
+        System.out.print("New password: ");
         String password = scanner.nextLine();
-        loginUser.setPassword(userid,password);
+        loginUser.setPassword(loginUser.getUserid(),password);
     }
 
     private void updateUsernameAndPassword(User loginUser) {
-        System.out.print("Userid: ");
-        String userid = scanner.nextLine();
-        System.out.print("Password: ");
+        System.out.print("New password: ");
         String password = scanner.nextLine();
-        System.out.print("Username: ");
+        System.out.print("New username: ");
         String username = scanner.nextLine();
-        loginUser.setUsernameAndPassword(userid,password,username);
+        loginUser.setUsernameAndPassword(loginUser.getUserid(),password,username);
     }
 
     private void updateUsername(User loginUser) {
-        System.out.print("Userid: ");
-        String userid = scanner.nextLine();
-        System.out.print("Username: ");
+        System.out.print("New username: ");
         String username = scanner.nextLine();
-        loginUser.setUsername(userid,username);
+        loginUser.setUsername(loginUser.getUserid(),username);
     }
 
     private void borrow(User user) {
@@ -79,18 +74,30 @@ public class UserUI {
         BookDao bookDao = BookDao.getInstance();
         bookDao.showAllBooks();
         System.out.print("Which one you want to borrow(input bookId): ");
-        String bookId = scanner.nextLine();
 
-        borrowManager.borrow(user, bookId);
+        String bookId = scanner.nextLine();
+        Book book = bookDao.getBook(bookId);
+
+        if (book != null) {
+            borrowManager.borrow(user, book);
+        }else {
+            System.out.println("!!!!!!!!!!!!!!Wrong bookId!!!!!!!!!!!!!");
+        }
     }
 
     private void readBook() {
         BookDao bookDao = BookDao.getInstance();
         bookDao.showAllBooks();
-        System.out.println("Which one you want to read(input bookId): ");
+        System.out.print("Which one you want to read(input bookId): ");
 
         String bookId = scanner.nextLine();
-        bookDao.readBook(bookId);
+        Book book = bookDao.getBook(bookId);
+
+        if (book != null) {
+            bookDao.readBook(bookId);
+        }else {
+            System.out.println("!!!!!!!!!!!!!!Wrong bookId!!!!!!!!!!!!!");
+        }
     }
 
     private void showAllCommand() {

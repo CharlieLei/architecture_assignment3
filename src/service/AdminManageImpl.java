@@ -16,12 +16,16 @@ public class AdminManageImpl implements AdminManageService {
         BookDao bookDao = BookDao.getInstance();
         bookDao.showAllBooks();
         System.out.print("Which one you want to change(input bookId): ");
-        String bookId = scanner.nextLine();
-        System.out.print("New book name: ");
-        String bookName = scanner.nextLine();
 
+        String bookId = scanner.nextLine();
         Book book = bookDao.getBook(bookId);
-        book.setBookName(bookName);
+        if (book != null) {
+            System.out.print("New book name: ");
+            String bookName = scanner.nextLine();
+            book.setBookName(bookName);
+        }else {
+            System.out.println("!!!!!!!!!!!!!!Wrong bookId!!!!!!!!!!!!!");
+        }
     }
 
     @Override

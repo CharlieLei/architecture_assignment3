@@ -53,12 +53,26 @@ public class LibraryManageSystem {
 
         if (isUser) {
             User user = userDao.getUser(userId, password);
+
+            if (user == null) {
+                System.out.println("!userId or password error!");
+                return;
+            }
+
             UserUI userUI = new UserUI();
             userUI.showUserUI(user);
         }else if (isAdmin){
             Admin admin = adminDao.getAdmin(userId, password);
+
+            if (admin == null) {
+                System.out.println("!userId or password error!");
+                return;
+            }
+
             AdminUI adminUI = new AdminUI();
             adminUI.showAdminUI(admin);
+        }else {
+            System.out.println("!!!!!!!!!!!!!userId or password error!!!!!!!!!!!!!");
         }
     }
 

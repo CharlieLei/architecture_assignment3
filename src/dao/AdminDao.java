@@ -41,11 +41,10 @@ public class AdminDao {
     }
 
     public void showAllAdmin() {
+        System.out.println("userId\tpassword");
         for (Admin admin: adminList) {
-            System.out.print("userid: ");
-            System.out.println(admin.getUserid());
-            System.out.print("password: ");
-            System.out.println(admin.getPassword());
+            System.out.println(admin.getUserid() + "\t" + admin.getPassword());
         }
+        System.out.println("(Hint: departA has all permissions, while departB can only edit literature info)");
     }
 }

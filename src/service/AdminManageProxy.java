@@ -11,7 +11,7 @@ public class AdminManageProxy implements AdminManageService {
         if (permission.canEditLiteratureInfo()) {
             adminManageService.editLiteratureInfo(permission);
         }else {
-            System.out.println("no permission to edit literature info");
+            System.out.println("!!!!!!!!!!no permission to edit literature info!!!!!!!!!!");
         }
     }
 
@@ -20,7 +20,7 @@ public class AdminManageProxy implements AdminManageService {
         if (permission.canShowBorrowRecords()) {
             adminManageService.showBorrowRecords(permission);
         }else {
-            System.out.println("no permission to show borrow records");
+            System.out.println("!!!!!!!!!!no permission to show borrow records!!!!!!!!!!");
         }
     }
 
@@ -29,7 +29,7 @@ public class AdminManageProxy implements AdminManageService {
         if (permission.canShowOverduePenalty()) {
             adminManageService.showOverduePenalty(permission);
         } else {
-            System.out.println("no permission to show overdue penalty");
+            System.out.println("!!!!!!!!!!no permission to show overdue penalty!!!!!!!!!!");
         }
     }
 }

@@ -43,13 +43,10 @@ public class UserDao {
     }
 
     public void showAllUser() {
+        System.out.println("userId\tusername\tpassword");
         for (User user: userList) {
-            System.out.print("userid: ");
-            System.out.println(user.getUserid());
-            System.out.print("username: ");
-            System.out.println(user.getUsername());
-            System.out.print("password: ");
-            System.out.println(user.getPassword());
+            System.out.println(user.getUserid() + "\t" + user.getUsername() + "\t" + user.getPassword());
         }
+        System.out.println("(Hint: user1 can borrow 1 book, user2 can borrow 2 and user3 can borrow 3)");
     }
 }

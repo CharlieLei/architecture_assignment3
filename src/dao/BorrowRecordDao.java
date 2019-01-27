@@ -9,7 +9,7 @@ public class BorrowRecordDao {
     private List<BorrowRecordItem> borrowRecord = new ArrayList<>();
     private static BorrowRecordDao instance = new BorrowRecordDao();
 
-    private void BorrowRecordDao() {
+    private BorrowRecordDao() {
 
     }
 
