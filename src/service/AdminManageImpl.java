@@ -1,17 +1,33 @@
 package service;
 
+import dao.BookDao;
+import dao.BorrowRecordDao;
+import model.Book;
 import model.admin.Permission;
+
+import java.util.Scanner;
 
 public class AdminManageImpl implements AdminManageService {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     @Override
     public void editLiteratureInfo(Permission permission) {
-        System.out.println("edit literature info");
+        BookDao bookDao = BookDao.getInstance();
+        bookDao.showAllBooks();
+        System.out.print("Which one you want to change(input bookId): ");
+        String bookId = scanner.nextLine();
+        System.out.print("New book name: ");
+        String bookName = scanner.nextLine();
+
+        Book book = bookDao.getBook(bookId);
+        book.setBookName(bookName);
     }
 
     @Override
     public void showBorrowRecords(Permission permission) {
-        System.out.println("show borrow records");
+        BorrowRecordDao borrowRecordDao = BorrowRecordDao.getInstance();
+        borrowRecordDao.showBorrowRecord();
     }
 
     @Override

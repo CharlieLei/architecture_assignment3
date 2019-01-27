@@ -24,6 +24,15 @@ public class BookDao {
         return instance;
     }
 
+    public Book getBook(String bookId) {
+        for (Book book: bookList) {
+            if (book.getBookId().equals(bookId)) {
+                return book;
+            }
+        }
+        return null;
+    }
+
     public void readBook(String bookId) {
         ReaderFactory readerFactory = new ExcelFactory();
         for (Book book: bookList) {
