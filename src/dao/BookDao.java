@@ -36,21 +36,23 @@ public class BookDao {
     public void readBook(String bookId) {
         ReaderFactory readerFactory = new ExcelFactory();
         for (Book book: bookList) {
-            switch (book.getFileType()) {
-                case "pdf":
-                    readerFactory = new PDFFactory();
-                    break;
-                case "word":
-                    readerFactory = new WordFactory();
-                    break;
-                case "excel":
-                    readerFactory = new ExcelFactory();
-                    break;
-                default:
-                    System.out.println("error file type");
-                    break;
+            if (book.getBookId().equals(bookId)) {
+                switch (book.getFileType()) {
+                    case "pdf":
+                        readerFactory = new PDFFactory();
+                        break;
+                    case "word":
+                        readerFactory = new WordFactory();
+                        break;
+                    case "excel":
+                        readerFactory = new ExcelFactory();
+                        break;
+                    default:
+                        System.out.println("error file type");
+                        break;
+                }
+                readerFactory.read(book.getBookName());
             }
-            readerFactory.read(book.getBookName());
         }
 //        if (kind ==1) {
 //            PDFFactory pdfFactory = new PDFFactory();
