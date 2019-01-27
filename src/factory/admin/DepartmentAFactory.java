@@ -1,4 +1,4 @@
-package factory;
+package factory.admin;
 
 import model.admin.Admin;
 import model.admin.DepartmentA;

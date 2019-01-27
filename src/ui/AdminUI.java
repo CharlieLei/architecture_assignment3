@@ -13,21 +13,29 @@ public class AdminUI {
         boolean isQuit = false;
         String order = "";
         while (!isQuit) {
-            System.out.println("admin console");
-            System.out.print("order: ");
+            System.out.println("##################admin console#################");
+            System.out.println("#########input 'list' to show all commands######");
+            System.out.print("$: ");
             order = scanner.nextLine();
             switch (order) {
                 case "edit":
                     this.editLiteratureInfo(admin);
                     break;
-                case "show borrow records":
+                case "showBorrowRecords":
                     this.showBorrowRecords(admin);
                     break;
-                case "show overdue penalty":
+                case "showOverduePenalty":
                     this.showOverduePenalty(admin);
+                    break;
+                case "list":
+                    this.showAllCommand();
                     break;
                 case "logout":
                     isQuit = true;
+                    break;
+                default:
+                    System.out.println("wrong command!");
+                    System.out.println("input list to get all commands");
                     break;
             }
         }
@@ -46,5 +54,15 @@ public class AdminUI {
     private void showOverduePenalty(Admin admin) {
         AdminManageService adminManageService = new AdminManageProxy();
         adminManageService.showOverduePenalty(admin.getManagePermission());
+    }
+
+    private void showAllCommand() {
+        System.out.println("#################all commands###############");
+        System.out.println("edit");
+        System.out.println("showBorrowRecords");
+        System.out.println("showOverduePenalty");
+        System.out.println("list");
+        System.out.println("logout");
+        System.out.println("############################################");
     }
 }

@@ -1,8 +1,6 @@
-package factory;
+package factory.reader;
 
 import Reader.ExcelReader;
-
-import java.io.IOException;
 
 public class ExcelFactory implements ReaderFactory
 {

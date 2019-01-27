@@ -1,8 +1,8 @@
 package dao;
 
-import factory.GraduateFactory;
-import factory.TeacherFactory;
-import factory.UndergraduateFactory;
+import factory.user.GraduateFactory;
+import factory.user.TeacherFactory;
+import factory.user.UndergraduateFactory;
 import model.user.User;
 
 import java.util.ArrayList;

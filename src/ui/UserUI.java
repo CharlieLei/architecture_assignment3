@@ -1,8 +1,6 @@
 package ui;
 
-import Reader.PDFReader;
 import dao.BookDao;
-import model.Book;
 import model.user.User;
 import service.BorrowManager;
 
@@ -17,7 +15,7 @@ public class UserUI {
         while (!isQuit) {
             System.out.println("##################user console##################");
             System.out.println("#########input 'list' to show all commands######");
-            System.out.print("order: ");
+            System.out.print("$: ");
             order = scanner.nextLine();
             switch (order) {
                 case "updatePassword":
@@ -78,21 +76,21 @@ public class UserUI {
 
     private void borrow(User user) {
         BorrowManager borrowManager = new BorrowManager();
-
-        System.out.print("which book: ");
+        BookDao bookDao = BookDao.getInstance();
+        bookDao.showAllBooks();
+        System.out.print("Which one you want to borrow(input bookId): ");
         String bookId = scanner.nextLine();
 
-        borrowManager.borrow(user, new Book());
+        borrowManager.borrow(user, bookId);
     }
 
     private void readBook() {
-        System.out.println("Book1:2018_DsgnArch01_Introduction.pdf");
-        System.out.println("Book2:assignment-3.docx");
-        System.out.println("Book3:a.xls");
-        BookDao bookDao = new BookDao();
-        System.out.println("Which one you want to read? ");
-        int bookid = Integer.parseInt(scanner.nextLine());
-        bookDao.getReader(bookid);
+        BookDao bookDao = BookDao.getInstance();
+        bookDao.showAllBooks();
+        System.out.println("Which one you want to read(input bookId): ");
+
+        String bookId = scanner.nextLine();
+        bookDao.readBook(bookId);
     }
 
     private void showAllCommand() {

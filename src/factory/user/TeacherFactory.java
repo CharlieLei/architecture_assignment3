@@ -1,7 +1,6 @@
-package factory;
+package factory.user;
 
 import Info.TeacherInfo;
-import Info.UserInfo;
 import model.user.Teacher;
 import model.user.User;
 import strategy.TeacherBorrowStrategy;

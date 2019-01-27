@@ -1,4 +1,4 @@
-package factory;
+package factory.user;
 
 import Info.GraduateInfo;
 import model.user.Graduate;

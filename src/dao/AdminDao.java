@@ -1,9 +1,8 @@
 package dao;
 
-import factory.DepartmentAFactory;
-import factory.DepartmentBFactory;
+import factory.admin.DepartmentAFactory;
+import factory.admin.DepartmentBFactory;
 import model.admin.Admin;
-import model.admin.DepartmentA;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -18,32 +18,29 @@ import java.util.Scanner;
 public class LibraryManageSystem {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static String visitorType = null;
-    private static User user;
-    private static Admin admin;
 
     public static void main(String[] args) {
         LibraryManageSystem libraryManageSystem = new LibraryManageSystem();
-        String order = "";
         boolean isQuit = false;
-        libraryManageSystem.showAllUserAndAdmin();
         while (!isQuit) {
-            System.out.println("please login");
-            libraryManageSystem.login();
-            switch (visitorType) {
-                case "user":
-                    UserUI userUI = new UserUI();
-                    userUI.showUserUI(user);
+            System.out.println("login? quit?");
+            System.out.print("$: ");
+            String command = scanner.nextLine();
+            switch (command) {
+                case "login":
+                    libraryManageSystem.login();
                     break;
-                case "admin":
-                    AdminUI adminUI = new AdminUI();
-                    adminUI.showAdminUI(admin);
+                case "quit":
+                    isQuit = true;
                     break;
             }
         }
     }
 
     private void login() {
+        this.showAllUserAndAdmin();
+
+        System.out.println("###########please login###########");
         System.out.print("input user id: ");
         String userId = scanner.nextLine();
         System.out.print("input user password: ");
@@ -55,15 +52,14 @@ public class LibraryManageSystem {
         boolean isAdmin = adminDao.isAdmin(userId);
 
         if (isUser) {
-            visitorType = "user";
-            user = userDao.getUser(userId, password);
+            User user = userDao.getUser(userId, password);
+            UserUI userUI = new UserUI();
+            userUI.showUserUI(user);
         }else if (isAdmin){
-            visitorType = "admin";
-            admin = adminDao.getAdmin(userId, password);
+            Admin admin = adminDao.getAdmin(userId, password);
+            AdminUI adminUI = new AdminUI();
+            adminUI.showAdminUI(admin);
         }
-    }
-
-    private void logout() {
     }
 
     private void showAllUserAndAdmin() {
