@@ -14,8 +14,8 @@ public abstract class User {
         this.userInfo = userInfo;
     }
 
-    public void borrow(Book book) {
-        this.borrowStrategy.borrow(book);
+    public void borrow(String userId) {
+        this.borrowStrategy.borrow(userId);
     }
     public void setUsernameAndPassword(String userid,String username,String password){userInfo.setUsernameAndPassword(userid,username,password);}
     public void setUsername(String userid,String username){userInfo.setUsername(userid,username);}
