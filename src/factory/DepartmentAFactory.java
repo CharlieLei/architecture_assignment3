@@ -11,6 +11,6 @@ public class DepartmentAFactory implements AdminFactory {
         permission.setEditLiteratureInfoPermission(true);
         permission.setShowBorrowRecordsPermission(true);
         permission.setShowOverduePenaltyPermission(true);
-        return new DepartmentA(permission);
+        return new DepartmentA("departA", "123456", permission);
     }
 }

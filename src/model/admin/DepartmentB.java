@@ -1,7 +1,7 @@
 package model.admin;
 
 public class DepartmentB extends Admin {
-    public DepartmentB(Permission permission) {
-        super(permission);
+    public DepartmentB(String userid, String password, Permission managePermission) {
+        super(userid, password, managePermission);
     }
 }

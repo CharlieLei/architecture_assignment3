@@ -26,6 +26,7 @@ public class LibraryManageSystem {
         LibraryManageSystem libraryManageSystem = new LibraryManageSystem();
         String order = "";
         boolean isQuit = false;
+        libraryManageSystem.showAllUserAndAdmin();
         while (!isQuit) {
             System.out.println("please login");
             libraryManageSystem.login();
@@ -48,8 +49,8 @@ public class LibraryManageSystem {
         System.out.print("input user password: ");
         String password = scanner.nextLine();
 
-        UserDao userDao = new UserDao();
-        AdminDao adminDao = new AdminDao();
+        UserDao userDao = UserDao.getInstance();
+        AdminDao adminDao = AdminDao.getInstance();
         boolean isUser = userDao.isUser(userId);
         boolean isAdmin = adminDao.isAdmin(userId);
 
@@ -63,5 +64,16 @@ public class LibraryManageSystem {
     }
 
     private void logout() {
+    }
+
+    private void showAllUserAndAdmin() {
+        System.out.println("###########only for testing###########");
+        UserDao userDao = UserDao.getInstance();
+        AdminDao adminDao = AdminDao.getInstance();
+        System.out.println("-----------------users---------------");
+        userDao.showAllUser();
+        System.out.println("----------------admins---------------");
+        adminDao.showAllAdmin();
+        System.out.println("#####################################");
     }
 }
